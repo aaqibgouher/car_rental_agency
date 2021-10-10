@@ -18,7 +18,7 @@ class CarController extends Controller
         DB::beginTransaction();
     }
     
-    public static function list(Request $request) {
+    public function list(Request $request) {
         try {
             $data = [];
 
@@ -30,7 +30,7 @@ class CarController extends Controller
         }
     }
 
-    public static function add(Request $request) {
+    public function add(Request $request) {
         try {
             $vehicle_model = trim($request->input('vehicle_model'));
             $vehicle_number = trim($request->input('vehicle_number'));
@@ -50,7 +50,7 @@ class CarController extends Controller
         }
     }
 
-    public static function edit(Request $request, $id) {
+    public function edit(Request $request, $id) {
         try{
             $req = $request->all();
 
@@ -73,7 +73,7 @@ class CarController extends Controller
         }
     }
 
-    public static function booked_car_list(Request $request)
+    public function booked_car_list(Request $request)
     {
         try{
             $data = [];

@@ -23,7 +23,7 @@ class CreateCarsTable extends Migration
             $table->integer('is_available')->default(1)->comment("0: unavailable, 1: available");
             $table->integer('is_deleted')->default(0)->comment("0: not deleted, 1: deleted");
             $table->timestamps();
-            $table->integer('updated_by');
+            $table->integer('updated_by')->nullable();
         });
     }
 

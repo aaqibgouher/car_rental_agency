@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public static function dashboard(Request $request) {
+    public function dashboard(Request $request) {
         try {
             $data = [];
 

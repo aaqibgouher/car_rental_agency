@@ -9,7 +9,7 @@ use Exception;
 
 class CustomerController extends Controller
 {
-    public static function list(Request $request)
+    public function list(Request $request)
     {
         try{
             $data = [];

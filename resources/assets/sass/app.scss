@@ -1,14 +1,40 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import 'variables';
+@import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// import vuetify
+@import "~vuetify/dist/vuetify.min.css";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+// import material design icon
+@import '~@mdi/font/css/materialdesignicons.css';
+
+// import font awesome
+@import "~font-awesome/css/font-awesome.min.css";
+
+// import vue overlay
+@import '~vue-loading-overlay/dist/vue-loading.css';
+
+a {
+    text-decoration: none !important;
+}
+
+.frontend {
+    h1 {
+        font-size: 3em;
+        margin-bottom: 30px;
+    }
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 25px;
+    }
+    p {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    br {
+        padding: 20px;
+    }
 }

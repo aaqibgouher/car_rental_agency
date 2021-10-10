@@ -22,6 +22,7 @@ interface CarInterface{
     public static function get_total_available_cars();
     public static function total_booked_cars();
     public static function get_booked_cars_list();
+    public static function get_available_car($id);
 }
 
 class CarService implements CarInterface
@@ -97,8 +98,9 @@ class CarService implements CarInterface
         if ($params && array_key_exists("seating_capacity", $params)) $car_params["seating_capacity"] = $params["seating_capacity"];
         if ($params && array_key_exists("rent_per_day", $params)) $car_params["rent_per_day"] = $params["rent_per_day"];
         if ($params && array_key_exists("is_available", $params)) $car_params["is_available"] = $params["is_available"];
+        if ($params && array_key_exists("updated_by", $params)) $car_params["updated_by"] = $params["updated_by"] ? $params["updated_by"] : null;
+        if ($params && !array_key_exists("updated_by", $params)) $car_params["updated_by"] = $car->updated_by ? $car->updated_by : null;
         $car_params['updated_at'] = Common::now();
-        $car_params['updated_by'] = Auth::id();
 
         CarModel::where('id', $id)->update($car_params);
     }
@@ -125,5 +127,9 @@ class CarService implements CarInterface
 
     public static function get_booked_cars_list() {
         return CarModel::where('is_available', IsAvailableEnum::unavailable)->where('is_deleted', IsDeletedEnum::not_deleted)->get();
+    }
+
+    public static function get_available_car($id) {
+        return CarModel::where('id', $id)->where('is_available', IsAvailableEnum::available)->where('is_deleted', IsDeletedEnum::not_deleted)->first();
     }
 }

@@ -13,6 +13,25 @@ class Common
         return date("Y-m-d H:i:s");
     }
 
+    public static function date()
+    {
+        return date("Y-m-d");
+    }
+
+    public static function get_number_of_days($from_date, $to_date) 
+    {
+        $from_date = Carbon::parse($from_date);
+        $to_date = Carbon::parse($to_date);
+        return $from_date->diffInDays($to_date) + 1;
+    }
+
+    public static function get_to_date($from_date, $number_of_days) 
+    {
+        $from_date = Carbon::parse($from_date);
+        $to_date = $from_date->addDays($number_of_days - 1);
+        return $to_date->format('Y-m-d');
+    }
+
     // public static function datetime($datetime)
     // {
     //     if (!$datetime) return "";

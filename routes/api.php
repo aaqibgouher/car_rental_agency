@@ -26,6 +26,25 @@ Route::middleware(['auth.user'])->group(function () {
             Route::prefix('customers')->group(function() {
                 Route::post('/', 'api\CustomerController@list')->name('list_cutomers_booked_cars_api');
             });
+
+            Route::prefix('profile')->group(function() {
+                Route::post('/', 'api\ProfileController@profile')->name('admin_profile_api');
+                Route::post('/edit', 'api\ProfileController@edit')->name('admin_profile_api');
+            });
+        });
+    });
+
+    Route::prefix('profile')->group(function() {
+        Route::post('/', 'api\ProfileController@profile')->name('frontend_profile_api');
+    });
+
+    Route::middleware(['auth.customer'])->group(function () {
+        Route::prefix('booking')->group(function() {
+            Route::post('/', 'api\BookingController@ongoing_booking')->name('ongoing_booking_api');
+            Route::post('/history', 'api\BookingController@booking_history')->name('booking_history_api');
+            Route::post('/add', 'api\BookingController@add')->name('add_booking_api');
         });
     });
 });
+
+Route::get('/', 'api\FrontendController@list')->name('frontend_car_list_api');
