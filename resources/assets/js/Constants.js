@@ -10,5 +10,6 @@ export default {
     user_type: {
         customer: 0,
         agency: 1
-    }
+    },
+    
 }

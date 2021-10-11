@@ -4,25 +4,13 @@ import AdminRegisterComponent from '../components/admin/auth/AdminRegisterCompon
 import AdminHomePage from '../pages/admin/AdminHomePage';
 import AdminDashboardComponent from '../components/AdminDashboardComponent';
 import AdminCarsListComponent from '../components/cars/AdminCarsListComponent';
+import AdminCarAddComponent from '../components/cars/AdminCarAddComponent';
+import AdminCarEditComponent from '../components/cars/AdminCarEditComponent';
+import AdminBookedCarsListComponent from '../components/cars/AdminBookedCarsListComponent';
+import AdminProfileComponent from '../components/admin/profile/AdminProfileComponent';
+import AdminLogoutComponent from '../components/admin/auth/AdminLogoutComponent';
 
 const routes = [
-    {
-        path: '/admin',
-        name: 'admin_auth',
-        component: AdminAuthPage,
-        children: [
-            {
-                path: 'login',
-                name: 'admin_login',
-                component: AdminLoginComponent
-            },
-            {
-                path: 'register',
-                name: 'admin_register',
-                component: AdminRegisterComponent
-            }
-        ]
-    },
     {
         path: '/admin',
         component: AdminHomePage,
@@ -39,11 +27,55 @@ const routes = [
             },
             {
                 path: 'cars',
-                name: 'admin_cars',
+                name: 'admin_cars_list',
                 component: AdminCarsListComponent
             },
+            {
+                path: 'cars/add',
+                name: 'admin_car_add',
+                component: AdminCarAddComponent
+            },
+            {
+                path: 'cars/edit/:id',
+                name: 'admin_car_edit',
+                component: AdminCarEditComponent
+            },
+            ,
+            {
+                path: 'booked_cars',
+                name: 'admin_booked_cars_list',
+                component: AdminBookedCarsListComponent
+            },
+            {
+                path: 'profile',
+                name: 'admin_profile',
+                component: AdminProfileComponent
+            },
         ]
-    }
+    },
+    {
+        path: '/admin',
+        name: 'admin_auth',
+        component: AdminAuthPage,
+        children: [
+            {
+                path: 'login',
+                name: 'admin_login',
+                component: AdminLoginComponent
+            },
+            {
+                path: 'register',
+                name: 'admin_register',
+                component: AdminRegisterComponent
+            },
+            {
+                path: 'logout',
+                name: 'admin_logout',
+                component: AdminLogoutComponent
+            },
+        ]
+    },
+    
 ]
 
 export default routes;

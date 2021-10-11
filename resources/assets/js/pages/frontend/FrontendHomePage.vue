@@ -1,20 +1,19 @@
 <template>
   <v-main class="vld-parent grey lighten-3">
-    <frontend-navbar></frontend-navbar>
-
+    <frontend-sidebar></frontend-sidebar>
     <loading :active="spinner" is-full-page loader="dots"></loading>
-    <v-container class="mt-6">
+    <v-container class="mt-2">
       <router-view></router-view>
     </v-container>
   </v-main>
 </template>
 <script>
-import FrontendNavbar from "../../includes/frontend/FrontendNavbar.vue";
+import FrontendSidebar from '../../includes/frontend/FrontendSidebar';
 import Loading from "vue-loading-overlay";
-import FrontendBlogListComponent from '../../components/frontend/blog/FrontendBlogListComponent.vue';
+// import FrontendBlogListComponent from '../../components/frontend/blog/FrontendBlogListComponent.vue';
 
 export default {
-  components: { FrontendNavbar, Loading, FrontendBlogListComponent },
+  components: { Loading, FrontendSidebar },
   data() {
     return {};
   },

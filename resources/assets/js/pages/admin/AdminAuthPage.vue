@@ -1,5 +1,5 @@
 <template>
-  <v-main class="accent">
+  <v-main class="backgroud_image">
     <loading :active="spinner" is-full-page loader="dots"></loading>
     <v-layout align-center justify-center class="py-5 my-5">
       <router-view></router-view>
@@ -18,3 +18,12 @@ export default {
   },
 };
 </script>
+<style>
+.backgroud_image {
+  width: 100%;
+  background-size: cover;
+  background: url(https://media.gettyimages.com/photos/black-fast-sports-car-on-white-background-studio-shiny-new-lu-picture-id999257096?s=2048x2048);
+  background-position: center;
+  background-attachment: fixed;
+}
+</style>

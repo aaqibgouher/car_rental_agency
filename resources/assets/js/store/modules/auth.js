@@ -12,31 +12,31 @@ const state = {
   menus: [
     {
       code: "DASHBOARD",
-      url: "dashboard",
+      url: "admin_dashboard",
       icon: "mdi-account-group",
       group: "DASHBOARD"
     },
     {
       code: "CARS",
-      url: "cars",
+      url: "admin_cars_list",
       icon: "mdi-account-group",
       group: "CARS"
     },
     {
       code: "BOOKED CARS",
-      url: "booked_cars",
+      url: "admin_booked_cars_list",
       icon: "mdi-account-group",
       group: "BOOKED CARS"
     },
     {
       code: "PROFILE",
-      url: "profile",
+      url: "admin_profile",
       icon: "mdi-account-group",
       group: "PROFILE"
     },
     {
       code: "LOGOUT",
-      url: "logout",
+      url: "admin_logout",
       icon: "mdi-account-group",
       group: "LOGOUT"
     },
@@ -121,25 +121,34 @@ const actions = {
           response.data.email
         )
       );
-      router.push({ name: "frontend_email_verification" });
+      console.log(router.history.current.name);
+      if (router.history.current.name == "admin_register") {
+        // if page is login then redirect to dashboard
+        router.push({ name: "admin_dashboard" });
+      } else if (router.history.current.name == "frontend_register") {
+        router.push({ name: "frontend" });
+      } else {
+        // else reload it
+        location.reload();
+      }
     }
   },
-  // async logout({ commit }, payload) {
-  //   const response = await AuthHelper.logout_api();
-  //   commit("set_token", false);
-  //   commit("set_user", false);
-  //   console.log(router.history.current.name);
-  //   if (router.history.current.name == "admin_logout") {
-  //     // if page is login then redirect to dashboard
-  //     router.push({ name: "admin_login" });
-  //   } else if (router.history.current.name == "frontend") {
-  //     router.push({ name: "frontend_login" });
-  //   } else {
-  //     // else reload it
-  //     location.reload();
-  //   }
-  //   // router.push({ name: 'admin' })
-  // },
+  async logout({ commit }, payload) {
+    const response = await AuthHelper.logout_api();
+    commit("set_token", false);
+    commit("set_user", false);
+    console.log(router.history.current.name);
+    if (router.history.current.name == "admin_logout") {
+      // if page is login then redirect to dashboard
+      router.push({ name: "admin_login" });
+    } else if (router.history.current.name == "frontend_logout") {
+      router.push({ name: "frontend_login" });
+    } else {
+      // else reload it
+      location.reload();
+    }
+    // router.push({ name: 'admin' })
+  },
   async home({ commit }) {
     const response = await AuthHelper.dashboard_api();
     if (response.data) {

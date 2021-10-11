@@ -6,6 +6,7 @@ const state = () => ({
     alert: false,
     spinner: false,
     drawer: true,
+    frontend_drawer: false,
     user_type: [
         { value: 1, label: 'Agency' },
         { value: 0, label: 'Customer' },
@@ -14,7 +15,12 @@ const state = () => ({
         { value: 1, label: 'Active' },
         { value: 0, label: 'Inactive' },
     ],
+    available_array: [
+        { value: 1, label: 'Available' },
+        { value: 0, label: 'Unavailable' },
+    ],
     delete_modal: false,
+    booking_add_modal: false,
     page_type: false
 });
 
@@ -31,12 +37,21 @@ const getters = {
     get_status_array(state){
         return state.status_array
     },
+    get_available_array(state){
+        return state.available_array
+    },
     get_delete_modal(state){
         return state.delete_modal
     },
     get_page_type(state){
         return state.page_type
     },
+    get_frontend_drawer(state) {
+        return state.frontend_drawer;
+    },
+    get_booking_add_modal(state) {
+        return state.booking_add_modal;
+    }
 };
 
 const mutations = {
@@ -55,6 +70,12 @@ const mutations = {
     set_page_type(state, payload){
         state.page_type = payload
     },
+    set_frontend_drawer(state, payload) {
+        state.frontend_drawer = payload;
+    },
+    set_booking_add_modal(state, payload) {
+        state.booking_add_modal = payload;
+    }
 };
 
 const actions = {

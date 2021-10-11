@@ -38,7 +38,7 @@ export default function setup() {
                     type: 'success',
                     message: response.message
                 };
-                break;
+                break;  
             case 400:
                 store.state.common.alert = {
                     type: 'error',
@@ -47,11 +47,11 @@ export default function setup() {
                 break;
             case 401:
                 store.commit("common/set_page_type", "login")
-                // router.push({name: 'admin_login'})
+                router.push({name: 'admin_login'})
                 break;
             case 401.1:
                 store.commit("common/set_page_type", "login_frontend")
-                // router.push({name: 'frontend_login'})
+                router.push({name: 'frontend_login'})
                 break;
             case 403:
                 store.commit("common/set_page_type", "permission_denied")

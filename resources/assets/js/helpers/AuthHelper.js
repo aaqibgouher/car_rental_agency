@@ -23,9 +23,9 @@ const register_api = async (formdata = {}) => {
  * @param object formdata {email, password}
  * @returns object object of logout user
  */
-//  const logout_api = async (formdata = {}) => {
-//     return await axios.post("/api/auth/logout", formdata);
-// }
+ const logout_api = async (formdata = {}) => {
+    return await axios.post("/api/auth/logout", formdata);
+}
 
 /**
  * This will call home api
@@ -46,7 +46,7 @@ const dashboard_api = async (formdata = {}) => {
 
 export default {
     login_api,
-    // logout_api,
+    logout_api,
     dashboard_api,
     register_api,
     // email_verification_api

@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Exception;
+use App\Utilities\Constant;
+use App\Utilities\ApiOutput;
 use App\Utilities\JWTLibrary;
 use App\Models\UserTokenModel;
-use App\Utilities\ApiOutput;
 
 class UserAuthMiddleware
 {
@@ -30,8 +31,8 @@ class UserAuthMiddleware
 
             return $next($request);
 
-        }catch(Exception $e){
-            return ApiOutput::error($e->getMessage());
+        }catch(Exception $e){   
+            return ApiOutput::unauthorize_user();
         }
     }
 }

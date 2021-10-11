@@ -70,14 +70,15 @@ class BookingService implements BookingInterface
     {
         $user_id = Auth::id();
 
-        $booking = DB::table('bookings')->where('user_id', '=', $user_id)->where('to_date', ">=", Common::date())->get();
+        $booking = BookingModel::with('car')->where('user_id', '=', $user_id)->where('to_date', ">=", Common::date())->get();
+        
         return $booking;
     }
 
     public static function get_booking_history() {
         $user_id = Auth::id();
 
-        $booking = DB::table('bookings')->where('user_id', '=', $user_id)->where('to_date', "<", Common::date())->get();
+        $booking = BookingModel::with('car')->where('user_id', '=', $user_id)->where('to_date', "<", Common::date())->get();
         return $booking;
     }
 }

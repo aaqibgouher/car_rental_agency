@@ -11,7 +11,7 @@
     </v-list-item>
     <v-divider></v-divider>
     <v-list dense shaped>
-      <v-list-item exact link v-for="menu in menus" :key="menu.code" :to="menu.url">
+      <v-list-item exact link v-for="menu in menus" :key="menu.code" :to="{ name: menu.url }">
         <v-list-item-action>
           <v-icon>{{ menu.icon }}</v-icon>
         </v-list-item-action>

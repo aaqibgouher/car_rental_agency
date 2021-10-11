@@ -85,4 +85,17 @@ class CarController extends Controller
             return ApiOutput::error($e->getMessage());
         }
     }
+
+    public function detail(Request $request, $id)
+    {
+        try{
+            $data = [];
+
+            $data = CarService::get_by_id($id);
+
+            return ApiOutput::success("successfully get detail of a car", $data);
+        }catch(Exception $e) {
+            return ApiOutput::error($e->getMessage());
+        }
+    }
 }

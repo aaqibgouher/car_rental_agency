@@ -18,6 +18,7 @@ Route::middleware(['auth.user'])->group(function () {
 
             Route::prefix('car')->group(function() {
                 Route::post('/', 'api\CarController@list')->name('list_car_api');
+                Route::post('/detail/{id}', 'api\CarController@detail')->name('detail_car_api');
                 Route::post('/add', 'api\CarController@add')->name('add_car_api');
                 Route::post('/edit/{id}', 'api\CarController@edit')->name('edit_car_api');
                 Route::post('/booked_car_list', 'api\CarController@booked_car_list')->name('booked_car_list_api');
@@ -47,4 +48,4 @@ Route::middleware(['auth.user'])->group(function () {
     });
 });
 
-Route::get('/', 'api\FrontendController@list')->name('frontend_car_list_api');
+Route::post('/', 'api\FrontendController@list')->name('frontend_car_list_api');

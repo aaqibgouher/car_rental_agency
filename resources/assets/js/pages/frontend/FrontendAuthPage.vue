@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="backgroud_image">
     <loading :active="spinner" is-full-page loader="dots"></loading>
     <v-layout align-center justify-center class="my-10">
       <router-view></router-view>
@@ -10,6 +10,7 @@
 import Loading from "vue-loading-overlay";
 export default {
   components: { Loading },
+  name: "FrontendAuthPage",
   data() {
     return {};
   },
@@ -20,3 +21,12 @@ export default {
   },
 }
 </script>
+<style>
+.backgroud_image {
+  width: 100%;
+  background-size: cover;
+  background: url(https://media.gettyimages.com/photos/silver-two-door-sports-car-on-blacktop-picture-id168631817?s=2048x2048);
+  background-position: center;
+  background-attachment: fixed;
+}
+</style>

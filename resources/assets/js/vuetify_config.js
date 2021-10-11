@@ -5,9 +5,9 @@ export default {
     theme: {
         themes: {
             light: {
-                primary: '#300032',
+                primary: '#4d4d4d',
                 secondary: '#06000a',
-                accent: '#c43235',
+                accent: '#4d4d4d',
                 error: colors.red,
                 info: colors.blue,
                 success: colors.teal,
