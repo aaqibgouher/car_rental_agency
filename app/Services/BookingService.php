@@ -25,7 +25,7 @@ class BookingService implements BookingInterface
 {
     public static function add($user_id, $car_id, $number_of_days, $from_date, $params = [])
     {
-        $validator = Validator::make(compact("user_id", "car_id", "number_of_days", "from_date", "to_date"), [
+        $validator = Validator::make(compact("user_id", "car_id", "number_of_days", "from_date"), [
             "user_id" => Rule::get("id", true),
             "car_id" => Rule::get("id", true),
             "number_of_days" => Rule::get("capacity", true),

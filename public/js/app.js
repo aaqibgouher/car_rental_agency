@@ -90227,7 +90227,7 @@ var dashboard_api = function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/admin/", formdata);
+            return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/admin", formdata);
 
           case 2:
             return _context4.abrupt("return", _context4.sent);

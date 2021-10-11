@@ -32,7 +32,7 @@ const register_api = async (formdata = {}) => {
  * @returns object
  */
 const dashboard_api = async (formdata = {}) => {
-    return await axios.post("/api/admin/", formdata);
+    return await axios.post("/api/admin", formdata);
 }
 
 /**
