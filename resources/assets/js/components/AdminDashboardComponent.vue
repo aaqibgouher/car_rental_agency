@@ -68,7 +68,7 @@ export default {
   },
   created() {
     // this.$store.dispatch("auth/home");
-    this.$store.dispatch("dashboard/dashboard");
+    this.$store.dispatch("dashboard/dashboard", {formdata: {}});
   },
   computed: {
     total_cars() {

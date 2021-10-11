@@ -34,8 +34,8 @@ const mutations = {
 };
 
 const actions = {
-    async dashboard({ commit }){
-        const response = await DashboardHelper.dashboard_api();
+    async dashboard({ commit }, payload){
+        const response = await DashboardHelper.dashboard_api(payload.formdata);
         console.log(response.data);
         if(response.status == Constants.response_status.success){
             commit("set_total_cars", response.data.total_cars);

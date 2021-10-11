@@ -6,7 +6,7 @@ import axios from 'axios';
  * @returns object user object
  */
 const dashboard_api = async (formdata = {}) => {
-    return await axios.post("/api/admin/", formdata);
+    return await axios.post("/api/admin", formdata);
 }
 
 export default {
