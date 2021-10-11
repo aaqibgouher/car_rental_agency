@@ -151,6 +151,7 @@ const actions = {
   },
   async home({ commit }) {
     const response = await AuthHelper.dashboard_api();
+    console.log(router.history.current.name);
     if (response.data) {
       // commit("set_menus", response.data.menus);
       // commit("set_permissions", response.data.permissions);

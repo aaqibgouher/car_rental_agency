@@ -89376,13 +89376,14 @@ var actions = {
             case 2:
               response = _context4.sent;
 
+              console.log(__WEBPACK_IMPORTED_MODULE_3__router_index__["a" /* router */].history.current.name);
               if (response.data) {
                 // commit("set_menus", response.data.menus);
                 // commit("set_permissions", response.data.permissions);
                 commit("common/set_alert", false, { root: true });
               }
 
-            case 4:
+            case 5:
             case "end":
               return _context4.stop();
           }
@@ -91224,7 +91225,7 @@ var list_api = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/", formdata);
+                        return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api", formdata);
 
                     case 2:
                         return _context.abrupt("return", _context.sent);
