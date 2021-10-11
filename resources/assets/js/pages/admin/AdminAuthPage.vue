@@ -18,7 +18,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .backgroud_image {
   width: 100%;
   background-size: cover;

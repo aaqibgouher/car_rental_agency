@@ -67,7 +67,7 @@ export default {
     return {};
   },
   created() {
-    this.$store.dispatch("auth/home");
+    // this.$store.dispatch("auth/home");
     this.$store.dispatch("dashboard/dashboard");
   },
   computed: {

@@ -1,5 +1,6 @@
 import DashboardHelper from '../../helpers/DashboardHelper';
 import Constants from '../../Constants';
+import { router } from "../../router/index";
 import Utilities from '../../Utilities';
 
 const state = () => ({
@@ -40,6 +41,8 @@ const actions = {
             commit("set_total_cars", response.data.total_cars);
             commit("set_total_available_cars", response.data.total_available_cars);
             commit("set_total_booked_car", response.data.total_booked_cars);
+        }else {
+            router.push({ name: "admin_login" });
         }
     },
 };

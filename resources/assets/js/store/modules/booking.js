@@ -51,6 +51,7 @@ const actions = {
     if (response.status == Constants.response_status.success) {
       commit("set_bookings", response.data);
       commit("common/set_booking_add_modal", false, { root: true });
+      alert("Booking added sucessfully .");
     }
   },
 };
