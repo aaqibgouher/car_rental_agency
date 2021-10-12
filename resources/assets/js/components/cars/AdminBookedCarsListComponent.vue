@@ -10,7 +10,7 @@
               <v-progress-linear color="deep-purple" height="5" indeterminate></v-progress-linear>
             </template>
 
-            <v-img height="100" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+            <v-img height="100" src="https://media.gettyimages.com/photos/red-sports-car-picture-id177877481?s=2048x2048""></v-img>
 
             <v-card-title>{{ car.vehicle_model }}</v-card-title>
 
